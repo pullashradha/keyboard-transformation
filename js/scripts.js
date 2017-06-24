@@ -61,7 +61,18 @@ $(document).ready(function() {
   {
     if ($.inArray(inputtedText[i], linearShiftRows) != -1) {
       var charactersPlaceInArray = linearShiftRows.indexOf(inputtedText[i], linearShiftRows);
-      outputtedText.push(linearShiftRows[charactersPlaceInArray + linearShiftValue]);
+      if ((charactersPlaceInArray + linearShiftValue) < 0) {
+        outputtedText.push(linearShiftRows[linearShiftRows.length + (charactersPlaceInArray + linearShiftValue)]);
+      } else if ((charactersPlaceInArray + linearShiftValue) > 39) {
+        var shiftsUntilEndOfArray = (linearShiftRows.length - 1) - charactersPlaceInArray;
+        if (shiftsUntilEndOfArray === 0) {
+          outputtedText.push(linearShiftRows[linearShiftValue - 1]);
+        } else {
+          outputtedText.push(linearShiftRows[linearShiftValue - shiftsUntilEndOfArray - 1]);
+        }
+      } else {
+        outputtedText.push(linearShiftRows[charactersPlaceInArray + linearShiftValue]);
+      }
     }
   }
 
