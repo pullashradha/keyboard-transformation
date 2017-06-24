@@ -21,6 +21,7 @@ No known bugs.
 The program should... | Example Input | Example Output
 ----- | ----- | -----
 Input a number or letter and horizontally flip it. | 1 | 0
+Input a number or letter and vertically flip it. | 1 | z
 
 ## Future Features
 
