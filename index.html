@@ -4,8 +4,8 @@
     <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
     <link rel="stylesheet" href="css/styles.css" type="text/css">
     <script src="js/jquery-1.12.4.js"></script>
-    <script type="text/javascript" src="js/scripts.js">
-    </script>
+    <script src="js/interface.js" type="text/javascript"></script>
+    <script src="js/transformation-functions.js" type="text/javascript"></script>
     <title>Keyboard Transformation</title>
   </head>
   <body>
@@ -15,7 +15,8 @@
       <textarea required class="form-control" type="text" id="text-to-change"></textarea>
       <div>
         <h2>Transformations</h2>
-        <p>H = horizontal flip, V = vertical flip, 5 = linear shift to right, -5 = linear shift to left</p>
+        <p>H = horizontal flip, V = vertical flip, 5 = linear shift to right by 5 spaces, -5 = linear shift to left by 5 spaces</p>
+        <p>Example: H, V, 5</p>
         <input required class="form-control" type="text" id="tranformation-values">
         <button class="btn btn-success" type="submit" name="submitButton">Submit</button>
       </div>

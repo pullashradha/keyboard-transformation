@@ -55,10 +55,11 @@ Contact Shradha Pulla at pullashradha@gmail.com for support in running this prog
 * Bootstrap
 * jQuery
 * JavaScript
+* MongoDB
 
 ## Links
 
-Git Hub Repository: https://github.com/pullashradha/KeyboardTransformation
+Git Hub Repository: https://github.com/pullashradha/keyboard-transformation
 
 ## License
 
