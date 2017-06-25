@@ -8,7 +8,7 @@ $(document).ready(function() {
     var inputtedText = $("textarea#text-to-change").val();
     var transformationValues = $("input#tranformation-values").val().toUpperCase().split(", "); //Convert all transformation values to uppercase & split by comma/space separations
 
-//Create array to output tranformed text for each transform
+//Create array to output transformed text for each transform
     outputtedText = inputtedText.toLowerCase().split(''); //Convert all uppercase letters to lowercase & split by character
 
 //Create new transformed text object
@@ -30,6 +30,6 @@ $(document).ready(function() {
     }
 
 //Output tranformed text
-    $("#output-text").text(outputtedText.join('')); //Remove commas in final arrays
+    $("#output-text").html(outputtedText.join("").replace(/(\r|\n)/g, "<br />")); //Remove commas in final array & keep initial indents/paragraph spacing
   });
 });

@@ -36,13 +36,13 @@ Input a character and horizontally flip it. | 1 | 0
 Input a character and vertically flip it. | 1 | z
 Input a character and shift/linearly translate position. | 1, shift +5 | 6
 Run more than one function in a row using the results of the previous function | 1 with H, V, 5 | 5
-Output text in same formatting (ex. keep initial whitespace) as inputted with transformation changes. | I like dogs with H, V, 5 | k ukic djaf7
+Output text in same formatting (ex. initial whitespace & paragraph indents) as inputted with transformation changes. | I like dogs with H, V, 5 | k ukic djaf7
 
 ## Future Features
 
-HTML | CSS | JavaScript
------ | ----- | -----
---- | --- | Keep the paragraph formatting intact from initial text.
+HTML | CSS | JavaScript | MongoDB
+----- | ----- | ----- | -----
+--- | --- | Refactor transformation functions | Connect to MongoDB for CRUD
 
 ## Support and Contact Details
 
