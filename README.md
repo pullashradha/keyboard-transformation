@@ -42,16 +42,17 @@ Output text in same formatting (ex. keep initial whitespace) as inputted with tr
 
 HTML | CSS | JavaScript
 ----- | ----- | -----
---- | --- | ---
+--- | --- | Keep the paragraph formatting intact from initial text.
 
 ## Support and Contact Details
 
-Contact Shradha Pulla at pullashradha@gmail.comfor support in running this program.
+Contact Shradha Pulla at pullashradha@gmail.com for support in running this program.
 
 ## Technologies Used
 
 * HTML
 * CSS
+* Bootstrap
 * jQuery
 * JavaScript
 

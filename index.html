@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
     <link rel="stylesheet" href="css/styles.css" type="text/css">
     <script src="js/jquery-1.12.4.js"></script>
     <script type="text/javascript" src="js/scripts.js">
@@ -10,19 +11,17 @@
   <body>
     <h1>Keyboard Transformation</h1>
     <form id="text-input-form">
+      <h2>Input Text</h2>
+      <textarea required class="form-control" type="text" id="text-to-change"></textarea>
       <div>
-        <h2>Input text here:</h2>
-        <textarea required type="text" id="text-to-change"></textarea>
+        <h2>Transformations</h2>
+        <p>H = horizontal flip, V = vertical flip, 5 = linear shift to right, -5 = linear shift to left</p>
+        <input required class="form-control" type="text" id="tranformation-values">
+        <button class="btn btn-success" type="submit" name="submitButton">Submit</button>
       </div>
-      <br>
-      <input required type="text" id="tranformation-values">
-      <button type="submit" name="submitButton">Submit</button>
     </form>
-    <br>
-    <br>
     <hr>
-    <h2>Output here:</h2>
-    <br>
+    <h2>Output Text</h2>
     <p id="output-text"></p>
   </body>
 </html>

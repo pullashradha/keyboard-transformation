@@ -125,6 +125,6 @@ $(document).ready(function() {
     }
 
 //Output tranformed text
-    $("#output-text").text(outputtedText);
+    $("#output-text").text(outputtedText.join(''));
   });
 });

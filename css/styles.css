@@ -1,7 +1,31 @@
 body {
+  font-family: serif;
   color: black;
+  margin-left: 5%;
+  margin-right: 5%;
+  margin-top: 5%;
+  margin-bottom: 5%;
 }
 
 h1 {
   text-align: center;
+  margin-bottom: 3%;
+}
+
+h2 {
+  margin-bottom: 2%;
+}
+
+textarea {
+  margin-bottom: 5%;
+}
+
+.btn {
+  font-size: 12pt;
+  margin-top: 3%;
+}
+
+hr {
+  margin-top: 4%;
+  margin-bottom: 3%;
 }
