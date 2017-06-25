@@ -19,6 +19,7 @@ function TransformedText () {
 
 // Horizontal Flip Function
 TransformedText.prototype.horizontalFlip = function (outputtedText) {
+  this.horizontalFlipValue = []; //Reset horizontalFlipValue to 0 so previous values don't compound into array
   for (var i = 0; i < outputtedText.length; i ++)
   {
     //Find which array character is in
@@ -39,11 +40,12 @@ TransformedText.prototype.horizontalFlip = function (outputtedText) {
       this.horizontalFlipValue.push(outputtedText[i]);
     }
   }
-  return this.horizontalFlipValue;
-};
+  outputtedText = this.horizontalFlipValue;
+}
 
 //Vertical Flip Function
 TransformedText.prototype.verticalFlip = function (outputtedText) {
+  this.verticalFlipValue = [];
   for (var i = 0; i < outputtedText.length; i ++)
   {
     if ($.inArray(outputtedText[i], row1) != -1) {
@@ -62,11 +64,12 @@ TransformedText.prototype.verticalFlip = function (outputtedText) {
       this.verticalFlipValue.push(outputtedText[i]);
     }
   }
-  return this.verticalFlipValue;
-};
+  outputtedText = this.verticalFlipValue;
+}
 
 //Linear Shift Function
 TransformedText.prototype.linearShift = function (outputtedText, linearShiftValue) {
+  this.linearShiftValue = [];
   for (var i = 0; i < outputtedText.length; i ++)
   {
     if ($.inArray(outputtedText[i], allRows) != -1) {
@@ -85,8 +88,8 @@ TransformedText.prototype.linearShift = function (outputtedText, linearShiftValu
       }
     }
   }
-  return this.linearShiftValue;
-};
+  outputtedText = this.linearShiftValue;
+}
 
 
 ////////////// User Interface
@@ -118,6 +121,7 @@ $(document).ready(function() {
         outputtedText = newTransformedText.linearShiftValue;
       }
     }
+    console.log(outputtedText);
 
 //Output tranformed text
     $("#output-text").text(outputtedText);
