@@ -86,6 +86,8 @@ TransformedText.prototype.linearShift = function (outputtedText, linearShiftValu
       } else {
         this.linearShiftValue.push(allRows[charactersPlaceInArray + linearShiftValue]);
       }
+    } else {
+      this.linearShiftValue.push(outputtedText[i]);
     }
   }
   outputtedText = this.linearShiftValue;
@@ -99,10 +101,10 @@ $(document).ready(function() {
 
 //Input initial text & transformation values
     var inputtedText = $("textarea#text-to-change").val();
-    var transformationValues = $("input#tranformation-values").val().split(", "); //Split values by comma & following space separations
+    var transformationValues = $("input#tranformation-values").val().toUpperCase().split(", "); //Convert all transformation values to uppercase & split by comma/space separations
 
 //Create array to output tranformed text for each transform
-    outputtedText = inputtedText.split(''); //Split text inputted by character
+    outputtedText = inputtedText.toLowerCase().split(''); //Convert all uppercase letters to lowercase & split by character
 
 //Create new transformed text object
     var newTransformedText = new TransformedText (outputtedText);
@@ -116,12 +118,11 @@ $(document).ready(function() {
         newTransformedText.verticalFlip(outputtedText);
         outputtedText = newTransformedText.verticalFlipValue;
       } else {
-        var linearShiftValue = parseInt(transformationValues[i]);
+        var linearShiftValue = parseInt(transformationValues[i]); //Convert linear shift value to number
         newTransformedText.linearShift(outputtedText, linearShiftValue);
         outputtedText = newTransformedText.linearShiftValue;
       }
     }
-    console.log(outputtedText);
 
 //Output tranformed text
     $("#output-text").text(outputtedText);
