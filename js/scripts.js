@@ -8,72 +8,69 @@ var row4 = ["z", "x", "c", "v", "b", "n", "m", ",", ".", "/"];
 var allRows = row1.concat(row2).concat(row3).concat(row4);
 
 //Create final text output array
-var transformingText = [];
 var outputtedText = [];
 
 //Create Text Object
-function TransformedText (transformingText) {
-  this.transformingText = transformingText;
+function TransformedText () {
   this.horizontalFlipValue = [];
   this.verticalFlipValue = [];
   this.linearShiftValue = [];
 }
 
 // Horizontal Flip Function
-TransformedText.prototype.horizontalFlip = function () {
-  for (var i = 0; i < this.transformingText.length; i ++)
+TransformedText.prototype.horizontalFlip = function (outputtedText) {
+  for (var i = 0; i < outputtedText.length; i ++)
   {
     //Find which array character is in
-    if ($.inArray(this.transformingText[i], row1) != -1) {   //inArray returns -1 if value is not in array
+    if ($.inArray(outputtedText[i], row1) != -1) {   //inArray returns -1 if value is not in array
       //Find place value of character in array
-      var charactersPlaceInArray = row1.indexOf(this.transformingText[i], row1);
+      var charactersPlaceInArray = row1.indexOf(outputtedText[i], row1);
       this.horizontalFlipValue.push(row1[(row1.length - 1) - charactersPlaceInArray]);
-    } else if ($.inArray(this.transformingText[i], row2) != -1) {
-      var charactersPlaceInArray = row2.indexOf(this.transformingText[i], row2);
+    } else if ($.inArray(outputtedText[i], row2) != -1) {
+      var charactersPlaceInArray = row2.indexOf(outputtedText[i], row2);
       this.horizontalFlipValue.push(row2[(row2.length - 1) - charactersPlaceInArray]);
-    } else if ($.inArray(this.transformingText[i], row3) != -1) {
-      var charactersPlaceInArray = row3.indexOf(this.transformingText[i], row3);
+    } else if ($.inArray(outputtedText[i], row3) != -1) {
+      var charactersPlaceInArray = row3.indexOf(outputtedText[i], row3);
       this.horizontalFlipValue.push(row3[(row3.length - 1) - charactersPlaceInArray]);
-    } else if ($.inArray(this.transformingText[i], row4) != -1) {
-      var charactersPlaceInArray = row4.indexOf(this.transformingText[i], row4);
+    } else if ($.inArray(outputtedText[i], row4) != -1) {
+      var charactersPlaceInArray = row4.indexOf(outputtedText[i], row4);
       this.horizontalFlipValue.push(row4[(row4.length - 1) - charactersPlaceInArray]);
     } else {
-      this.horizontalFlipValue.push(this.transformingText[i]);
+      this.horizontalFlipValue.push(outputtedText[i]);
     }
   }
   return this.horizontalFlipValue;
 };
 
 //Vertical Flip Function
-TransformedText.prototype.verticalFlip = function () {
-  console.log(this.transformingText);
-  for (var i = 0; i < this.transformingText.length; i ++)
+TransformedText.prototype.verticalFlip = function (outputtedText) {
+  for (var i = 0; i < outputtedText.length; i ++)
   {
-    if ($.inArray(this.transformingText[i], row1) != -1) {
-      var charactersPlaceInArray = row1.indexOf(this.transformingText[i], row1);
+    if ($.inArray(outputtedText[i], row1) != -1) {
+      var charactersPlaceInArray = row1.indexOf(outputtedText[i], row1);
       this.verticalFlipValue.push(row4[charactersPlaceInArray]);
-    } else if ($.inArray(this.transformingText[i], row2) != -1) {
-      var charactersPlaceInArray = row2.indexOf(this.transformingText[i], row2);
+    } else if ($.inArray(outputtedText[i], row2) != -1) {
+      var charactersPlaceInArray = row2.indexOf(outputtedText[i], row2);
       this.verticalFlipValue.push(row3[charactersPlaceInArray]);
-    } else if ($.inArray(this.transformingText[i], row3) != -1) {
-      var charactersPlaceInArray = row3.indexOf(this.transformingText[i], row3);
+    } else if ($.inArray(outputtedText[i], row3) != -1) {
+      var charactersPlaceInArray = row3.indexOf(outputtedText[i], row3);
       this.verticalFlipValue.push(row2[charactersPlaceInArray]);
-    } else if ($.inArray(this.transformingText[i], row4) != -1) {
-      var charactersPlaceInArray = row4.indexOf(this.transformingText[i], row4);
+    } else if ($.inArray(outputtedText[i], row4) != -1) {
+      var charactersPlaceInArray = row4.indexOf(outputtedText[i], row4);
       this.verticalFlipValue.push(row1[charactersPlaceInArray]);
     } else {
-      this.verticalFlipValue.push(this.transformingText[i]);
+      this.verticalFlipValue.push(outputtedText[i]);
     }
   }
   return this.verticalFlipValue;
 };
 
 //Linear Shift Function
-TransformedText.prototype.linearShift = function (linearShiftValue) {
-  for (var i = 0; i < this.transformingText.length; i ++)
+TransformedText.prototype.linearShift = function (outputtedText, linearShiftValue) {
+  for (var i = 0; i < outputtedText.length; i ++)
   {
-    if ($.inArray(this.transformingText[i], allRows) != -1) {
-      var charactersPlaceInArray = allRows.indexOf(this.transformingText[i], allRows);
+    if ($.inArray(outputtedText[i], allRows) != -1) {
+      var charactersPlaceInArray = allRows.indexOf(outputtedText[i], allRows);
       if ((charactersPlaceInArray + linearShiftValue) < 0) {
         this.linearShiftValue.push(allRows[allRows.length + (charactersPlaceInArray + linearShiftValue)]);
       } else if ((charactersPlaceInArray + linearShiftValue) > 39) {
@@ -102,26 +99,25 @@ $(document).ready(function() {
     var transformationValues = $("input#tranformation-values").val().split(", "); //Split values by comma & following space separations
 
 //Create array to output tranformed text for each transform
-    transformingText = inputtedText.split(''); //Split text inputted by character
+    outputtedText = inputtedText.split(''); //Split text inputted by character
 
 //Create new transformed text object
-    var newTransformedText = new TransformedText (transformingText);
+    var newTransformedText = new TransformedText (outputtedText);
 
 //Loop through transformation values
-  for (var i = 0; i < transformationValues.length; i ++) {
-    if (transformationValues[i] === "H") {
-      newTransformedText.horizontalFlip();
-      this.transformingText = newTransformedText.horizontalFlipValue;
-      console.log(this.transformingText);
-    } else if (transformationValues[i] === "V") {
-      newTransformedText.verticalFlip();
-      this.transformingText = newTransformedText.verticalFlipValue;
-    } else {
-      var linearShiftValue = parseInt(transformationValues[i]);
-      newTransformedText.linearShift(linearShiftValue);
-      this.transformingText = newTransformedText.linearShiftValue
+    for (var i = 0; i < transformationValues.length; i ++) {
+      if (transformationValues[i] === "H") {
+        newTransformedText.horizontalFlip(outputtedText);
+        outputtedText = newTransformedText.horizontalFlipValue;
+      } else if (transformationValues[i] === "V") {
+        newTransformedText.verticalFlip(outputtedText);
+        outputtedText = newTransformedText.verticalFlipValue;
+      } else {
+        var linearShiftValue = parseInt(transformationValues[i]);
+        newTransformedText.linearShift(outputtedText, linearShiftValue);
+        outputtedText = newTransformedText.linearShiftValue;
+      }
     }
-  }
 
 //Output tranformed text
     $("#output-text").text(outputtedText);
