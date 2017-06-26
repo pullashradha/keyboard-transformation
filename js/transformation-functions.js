@@ -3,13 +3,13 @@ var row1 = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
 var row2 = ["q", "w", "e", "r", "t", "y", "u", "i", "o", "p"];
 var row3 = ["a", "s", "d", "f", "g", "h", "j", "k", "l", ";"];
 var row4 = ["z", "x", "c", "v", "b", "n", "m", ",", ".", "/"];
-//Combine all rows for functions
+//Combine all rows for linear shift function
 var allRows = row1.concat(row2).concat(row3).concat(row4);
 
 //Create final text output array
 var outputtedText = [];
 
-//Create element place in array variable
+//Create place in array variable
 var charactersPlaceInArray;
 
 //Create Text Object
@@ -77,9 +77,10 @@ TransformedText.prototype.linearShift = function (outputtedText, linearShiftValu
     if ($.inArray(outputtedText[i], allRows) != -1) {
       charactersPlaceInArray = allRows.indexOf(outputtedText[i], allRows);
       if (linearShiftValue < 0 || linearShiftValue === 0) {
-        if (charactersPlaceInArray + (linearShiftValue % 40) === 0) {
+        if (charactersPlaceInArray + (linearShiftValue % 40) === 0) { //Linear shift to same character as inputted
           this.linearShiftValue.push(allRows[charactersPlaceInArray + (linearShiftValue % 40)]);
         } else {
+          //Find the remainder value after dividing by 40
           this.linearShiftValue.push(allRows[allRows.length + (charactersPlaceInArray + (linearShiftValue % 40))]);
         }
       } else if (linearShiftValue > 0) {
