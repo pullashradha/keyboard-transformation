@@ -76,13 +76,18 @@ TransformedText.prototype.linearShift = function (outputtedText, linearShiftValu
   {
     if ($.inArray(outputtedText[i], allRows) != -1) {
       charactersPlaceInArray = allRows.indexOf(outputtedText[i], allRows);
-      if ((charactersPlaceInArray + linearShiftValue) < 0) {
+      if (linearShiftValue < 0) {
+        console.log("- #");
+        console.log(linearShiftValue);
+        console.log(linearShiftValue + 40);
         this.linearShiftValue.push(allRows[allRows.length + (charactersPlaceInArray + linearShiftValue)]);
       } else if ((charactersPlaceInArray + linearShiftValue) > 39) {
+        console.log("Yes2");
         var shiftsUntilEndOfArray = (allRows.length - 1) - charactersPlaceInArray;
         if (shiftsUntilEndOfArray === 0) {
           this.linearShiftValue.push(allRows[linearShiftValue - 1]);
         } else {
+          console.log("Yes3");
           this.linearShiftValue.push(allRows[linearShiftValue - shiftsUntilEndOfArray - 1]);
         }
       } else {
