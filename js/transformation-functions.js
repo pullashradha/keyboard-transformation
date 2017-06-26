@@ -3,13 +3,13 @@ var row1 = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
 var row2 = ["q", "w", "e", "r", "t", "y", "u", "i", "o", "p"];
 var row3 = ["a", "s", "d", "f", "g", "h", "j", "k", "l", ";"];
 var row4 = ["z", "x", "c", "v", "b", "n", "m", ",", ".", "/"];
-//Combine all rows for linear shift function
+//Combine all rows for functions
 var allRows = row1.concat(row2).concat(row3).concat(row4);
 
 //Create final text output array
 var outputtedText = [];
 
-//Create place in array variable
+//Create element place in array variable
 var charactersPlaceInArray;
 
 //Create Text Object
@@ -76,22 +76,14 @@ TransformedText.prototype.linearShift = function (outputtedText, linearShiftValu
   {
     if ($.inArray(outputtedText[i], allRows) != -1) {
       charactersPlaceInArray = allRows.indexOf(outputtedText[i], allRows);
-      if (linearShiftValue < 0) {
-        console.log("- #");
-        console.log(linearShiftValue);
-        console.log(linearShiftValue + 40);
-        this.linearShiftValue.push(allRows[allRows.length + (charactersPlaceInArray + linearShiftValue)]);
-      } else if ((charactersPlaceInArray + linearShiftValue) > 39) {
-        console.log("Yes2");
-        var shiftsUntilEndOfArray = (allRows.length - 1) - charactersPlaceInArray;
-        if (shiftsUntilEndOfArray === 0) {
-          this.linearShiftValue.push(allRows[linearShiftValue - 1]);
+      if (linearShiftValue < 0 || linearShiftValue === 0) {
+        if (charactersPlaceInArray + (linearShiftValue % 40) === 0) {
+          this.linearShiftValue.push(allRows[charactersPlaceInArray + (linearShiftValue % 40)]);
         } else {
-          console.log("Yes3");
-          this.linearShiftValue.push(allRows[linearShiftValue - shiftsUntilEndOfArray - 1]);
+          this.linearShiftValue.push(allRows[allRows.length + (charactersPlaceInArray + (linearShiftValue % 40))]);
         }
-      } else {
-        this.linearShiftValue.push(allRows[charactersPlaceInArray + linearShiftValue]);
+      } else if (linearShiftValue > 0) {
+        this.linearShiftValue.push(allRows[charactersPlaceInArray + (linearShiftValue % 40)]);
       }
     } else {
       this.linearShiftValue.push(outputtedText[i]);

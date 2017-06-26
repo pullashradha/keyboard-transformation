@@ -43,7 +43,6 @@ Output text in same formatting (ex. initial whitespace & paragraph indents) as i
 HTML | CSS | JavaScript | MongoDB
 ----- | ----- | ----- | -----
 --- | --- | Refactor transformation functions | Connect to MongoDB for CRUD
---- | --- | Use module/factors of 40 keys to handle linear shift inputs of > 80 | ---
 
 ## Support and Contact Details
 
