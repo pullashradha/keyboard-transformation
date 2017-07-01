@@ -77,14 +77,18 @@ TransformedText.prototype.linearShift = function (outputtedText, linearShiftValu
     if ($.inArray(outputtedText[i], allRows) != -1) {
       charactersPlaceInArray = allRows.indexOf(outputtedText[i], allRows);
       if (linearShiftValue < 0 || linearShiftValue === 0) {
-        if (charactersPlaceInArray + (linearShiftValue % 40) === 0) { //Linear shift to same character as inputted
-          this.linearShiftValue.push(allRows[charactersPlaceInArray + (linearShiftValue % 40)]);
+        if ((linearShiftValue % 40) === 0) { //Linear shift to same character as inputted
+          this.linearShiftValue.push(allRows[charactersPlaceInArray]);
         } else {
           //Find the remainder value after dividing by 40
-          this.linearShiftValue.push(allRows[allRows.length + (charactersPlaceInArray + (linearShiftValue % 40))]);
+          if ((charactersPlaceInArray + (linearShiftValue % 40)) < 0) {
+            this.linearShiftValue.push(allRows[allRows.length + (charactersPlaceInArray + (linearShiftValue % 40))]);
+          } else {
+            this.linearShiftValue.push(allRows[charactersPlaceInArray + (linearShiftValue % 40)]);
+          }
         }
       } else if (linearShiftValue > 0) {
-        this.linearShiftValue.push(allRows[charactersPlaceInArray + (linearShiftValue % 40)]);
+        this.linearShiftValue.push(allRows[(charactersPlaceInArray + (linearShiftValue % 40)) % 40]);
       }
     } else {
       this.linearShiftValue.push(outputtedText[i]);

@@ -6,7 +6,9 @@ $(document).ready(function() {
 
 //Input initial text & transformation values
     var inputtedText = $("textarea#text-to-change").val();
-    var transformationValues = $("input#tranformation-values").val().toUpperCase().split(", "); //Convert all transformation values to uppercase & split by comma/space separations
+    var transformationValues = $("input#tranformation-values").val().toUpperCase().split(", ");
+    //remove(" ");
+    //Convert all transformation values to uppercase & split by comma/space separations
 
 //Create array to output transformed text for each transform
     outputtedText = inputtedText.toLowerCase().split(''); //Convert all uppercase letters to lowercase & split by character
