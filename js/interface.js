@@ -1,14 +1,11 @@
-var TransformedText = ("js/transformation-functions.js").transformationModule;
-
 $(document).ready(function() {
   $("form#text-input-form").submit(function(event) {
     event.preventDefault();
 
 //Input initial text & transformation values
     var inputtedText = $("textarea#text-to-change").val();
-    var transformationValues = $("input#tranformation-values").val().toUpperCase().split(", ");
-    //remove(" ");
-    //Convert all transformation values to uppercase & split by comma/space separations
+    //Convert all transformation values to uppercase, remove whitespace & split by comma separation
+    var transformationValues = $("input#tranformation-values").val().toUpperCase().replace(/\s/g, "").split(",");
 
 //Create array to output transformed text for each transform
     outputtedText = inputtedText.toLowerCase().split(''); //Convert all uppercase letters to lowercase & split by character

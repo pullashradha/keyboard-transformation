@@ -96,5 +96,3 @@ TransformedText.prototype.linearShift = function (outputtedText, linearShiftValu
   }
   outputtedText = this.linearShiftValue;
 }
-
-transformationModule = TransformedText;

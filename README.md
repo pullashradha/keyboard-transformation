@@ -26,7 +26,7 @@ This program can only be accessed on a computer with Git and Atom software globa
 
 ## Known Bugs
 
-Can't process multiple transformations for linear shifts.
+No known bugs.
 
 ## Specifications
 
@@ -42,7 +42,7 @@ Output text in same formatting (ex. keep initial whitespace & paragraph indents)
 
 HTML | CSS | JavaScript | MongoDB
 ----- | ----- | ----- | -----
---- | --- | Refactor horizontal & vertical transformation functions | Connect to MongoDB for CRUD
+--- | --- | --- | Connect to MongoDB for CRUD
 
 ## Support and Contact Details
 
